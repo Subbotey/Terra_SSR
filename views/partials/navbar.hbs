@@ -1,0 +1,95 @@
+<nav class="uk-navbar-container uk-margin-remove uk-visible@s" uk-navbar>
+  <div class="uk-navbar-center uk-text-bold">
+    <div class="uk-navbar-center-left">
+      <div>
+        <ul class="uk-navbar-nav">
+          {{#if isIndex}}
+          <li class="uk-active"><a href="/">Главная</a></li>
+          {{else}}
+          <li><a href="/">Главная</a></li>
+          {{/if}}
+          {{#if isArticles}}
+          <li class="uk-active"><a href="/articles">Статьи</a></li>
+          {{else}}
+          <li><a href="/articles">Статьи</a></li>
+          {{/if}}
+          {{#if authorized}}
+          {{else}}
+          {{#if isStatement}}
+          <li class="uk-active"><a href="/statement">Заявка</a></li>
+          {{else}}
+          <li><a href="/statement">Заявка</a></li>
+          {{/if}}
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+    <a class="uk-navbar-item uk-logo" href="/">
+      <img src="./img/astronaut.svg" width="60" height="60" uk-svg>
+    </a>
+    <div class="uk-navbar-center-right">
+      <div>
+        <ul class="uk-navbar-nav">
+          {{#if isCrew}}
+          <li class="uk-active"><a href="/crew">Команда</a></li>
+          {{else}}
+          <li><a href="/crew">Команда</a></li>
+          {{/if}}
+          {{#if authorized}}
+          <li><a href="/out">Выйти</a></li>
+          {{else}}
+          <li><a href="#" uk-toggle="target: #authorization">Авторизация</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{{!-- Боковое мобильное --}}
+
+<nav class="uk-navbar uk-navbar-container uk-margin-remove uk-hidden@s">
+  <div class="uk-navbar-left">
+    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#side-menu" uk-toggle></a>
+  </div>
+  <div class="uk-navbar-center">
+    <a class="uk-navbar-item uk-logo" href="/">
+      <img class=" uk-align-center uk-text-center" src="./img/astronaut.svg" width="60" height="60" uk-svg>
+    </a>
+  </div>
+</nav>
+<div id="side-menu" uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar  uk-text-bold uk-text-uppercase">
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <ul class="uk-nav uk-nav-default">
+      {{#if isIndex}}
+      <li class="uk-active"><a href="/">Главная</a></li>
+      {{else}}
+      <li><a href="/">Главная</a></li>
+      {{/if}}
+      {{#if isArticles}}
+      <li class="uk-active"><a href="/articles">Статьи</a></li>
+      {{else}}
+      <li><a href="/articles">Статьи</a></li>
+      {{/if}}
+      {{#if authorized}}
+      {{else}}
+      {{#if isStatement}}
+      <li class="uk-active"><a href="/statement">Заявка</a></li>
+      {{else}}
+      <li><a href="/statement">Заявка</a></li>
+      {{/if}}
+      {{/if}}
+      {{#if isCrew}}
+      <li class="uk-active"><a href="/crew">Команда</a></li>
+      {{else}}
+      <li><a href="/crew">Команда</a></li>
+      {{/if}}
+      {{#if authorized}}
+      <li><a href="/out">Выйти</a></li>
+      {{else}}
+      <li><a href="#" uk-toggle="target: #authorization">Авторизация</a></li>
+      {{/if}}
+    </ul>
+  </div>
+</div>

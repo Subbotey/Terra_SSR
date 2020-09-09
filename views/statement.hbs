@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="" uk-grid>
+    <div class="uk-width-2-3@s">
+      <div class="uk-card uk-card-default uk-card-body">
+        <h4 class="uk-heading-divider uk-text-uppercase">
+          Опросный лист космонавта
+        </h4>
+        <p>Для зачисления в команду по терраформированию, отправляющуюся на Марс, Вам необходимо указать личные данные.
+        </p>
+        <form action="/reg" method="POST" class="uk-form-horizontal uk-margin-large">
+          <div class="uk-margin">
+            <label class="uk-form-label" for="first_name">Имя</label>
+            <div class="uk-form-controls">
+              <input id="first_name" class="uk-input" type="text" name="firstName" required>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="last_name">Фамилия</label>
+            <div class="uk-form-controls">
+              <input id="last_name" class="uk-input" type="text" name="lastName" required>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="img">Аватар</label>
+            <div class="uk-form-controls">
+              <input id="img" class="uk-input" type="text" name="img" required
+                placeholder="Вставьте ссылку на изображение">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="profession">Профессия</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="profession" name="profession">
+                <option>Врач</option>
+                <option>Инженер</option>
+                <option>Геолог</option>
+                <option>Повар</option>
+                <option>Сварщик</option>
+              </select>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <div class="uk-form-label">Пол</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <label><input class="uk-radio" type="radio" name="gender" value="Мужской" required> Мужской</label>
+              <label><input class="uk-radio" type="radio" name="gender" value="Женский" required> Женский</label>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="email">Email/Логин</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="email" type="email" name="email" required>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="password">Пароль</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="password" type="password" name="pwd" required>
+            </div>
+          </div>
+          <button class="uk-button uk-button-primary" type="submit">Регистрация</button>
+        </form>
+      </div>
+    </div>
+
+    {{!-- Краткие новости --}}
+
+    <div class="uk-width-1-3@s">
+      <div class="uk-card uk-card-default uk-card-body">
+        {{#if shortNews.length}}
+        <div uk-slider="center: true; autoplay: true; autoplay-interval: 10000">
+          <div class="uk-position-relative" tabindex="-1">
+            <ul class="uk-slider-items uk-child-width-3-4@s" uk-grid>
+              {{#each shortNews}}
+              <li>
+                <div class="uk-panel">
+                  <div class="uk-card-media-top">
+                    <img src="{{img}}" alt="{{title}}">
+                  </div>
+                  <div class="uk-panel">
+                    <h4 class="uk-text-uppercase uk-margin-medium-top">{{title}}</h4>
+                    {{{text}}}
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

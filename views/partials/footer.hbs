@@ -1,0 +1,29 @@
+<div>
+  <div class="uk-card uk-card-primary uk-card-footer uk-light">
+    <div uk-grid>
+      <div class="uk-width-2-3">
+        <h4>Ваш вклад очень ценен для нас!</h4>
+        <p>Вступая в команду вы становитесь причастным к великому делу.</p>
+        <p>С покорением Марса начнется новая эра для человечества!</p>
+      </div>
+      <div class="uk-width-1-3">
+        <h4 class="white-text">Полезные ссылки</h4>
+        <ul class="uk-nav">
+          <li><a href="/crew">Наша команда</a></li>
+          {{#if authorized}}
+          {{else}}
+          <li><a href="/statement">Пополнить ряды</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="uk-card uk-card-secondary uk-card-footer uk-light">
+    <div uk-grid>
+      <div class="uk-width-expand">
+        © 2020 Copyright By «Terraforming Mars»
+        <a class="uk-align-right" href="https://github.com/Subbotey">Разработано Subbotey</a>
+      </div>
+    </div>
+  </div>
+</div>
